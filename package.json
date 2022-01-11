@@ -1,10 +1,10 @@
 {
-  "name": "pancake-subgraph",
+  "name": "peronio-subgraph",
   "description": "PancakeSwap Subgraph",
   "version": "2.0.0",
   "private": true,
-  "repository": "git@github.com:pancakeswap/pancake-subgraph.git",
-  "author": "PancakeSwap",
+  "repository": "git@github.com:peronio-ar/peronio-subgraph.git",
+  "author": "Peronio",
   "license": "GPL-3.0-or-later",
   "workspaces": [
     "subgraphs/**/*"
