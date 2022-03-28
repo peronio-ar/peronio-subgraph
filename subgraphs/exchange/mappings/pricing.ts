@@ -4,15 +4,15 @@ import { Pair, Token, Bundle } from "../generated/schema";
 import { ZERO_BD, factoryContract, ADDRESS_ZERO, ONE_BD } from "./utils";
 
 let WMATIC_ADDRESS = "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270";
-let USDT_WMATIC_PAIR = "0x89ee602ea7dac1bda0e24cca086dbd2876fd54b4"; // created block 23587965
+let USDC_WMATIC_PAIR = "0x89ee602ea7dac1bda0e24cca086dbd2876fd54b4";
 
 export function getBnbPriceInUSD(): BigDecimal {
   // fetch eth prices for each stablecoin
-  let usdtPair = Pair.load(USDT_WMATIC_PAIR); // usdt is token1
+  let usdcPair = Pair.load(USDC_WMATIC_PAIR); // usdc is token1
   // let busdPair = Pair.load(BUSD_WMATIC_PAIR); // busd is token1
 
-  if (usdtPair !== null) {
-    return usdtPair.token1Price;
+  if (usdcPair !== null) {
+    return usdcPair.token1Price;
   } else {
     return ZERO_BD;
   }
@@ -21,8 +21,8 @@ export function getBnbPriceInUSD(): BigDecimal {
 // token where amounts should contribute to tracked volume and liquidity
 let WHITELIST: string[] = [
   "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", // WMATIC
-  "0xc2132d05d31c914a87c6611c10748aeb04b58e8f", // USDT
-  "0x08C776113974dA137d913a4488929Bd3A07FBec6", // PERF
+  "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // USDC
+  "0xc2768beF7a6BB57F0FfA169a9ED4017c09696FF1", // PE
 ];
 
 // minimum liquidity for price to get tracked
