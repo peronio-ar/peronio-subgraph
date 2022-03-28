@@ -1,7 +1,7 @@
 {
   "name": "peronio-subgraph",
-  "description": "PancakeSwap Subgraph",
-  "version": "2.0.0",
+  "description": "Peronio Subgraph",
+  "version": "2.1.0",
   "private": true,
   "repository": "git@github.com:peronio-ar/peronio-subgraph.git",
   "author": "Peronio",
