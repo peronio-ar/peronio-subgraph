@@ -8,7 +8,7 @@ import {
   Mint as MintEvent,
   Burn as BurnEvent,
   Swap as SwapEvent,
-  Bundle,
+  Bundle
 } from "../generated/schema";
 import { Mint, Burn, Swap, Transfer, Sync } from "../generated/templates/Pair/Pair";
 import { updatePairDayData, updateTokenDayData, updatePancakeDayData, updatePairHourData } from "./dayUpdates";
@@ -52,7 +52,10 @@ export function handleTransfer(event: Transfer): void {
     // create new mint if no mints so far or if last one is done already
     if (mints.length === 0 || isCompleteMint(mints[mints.length - 1])) {
       let mint = new MintEvent(
-        event.transaction.hash.toHex().concat("-").concat(BigInt.fromI32(mints.length).toString())
+        event.transaction.hash
+          .toHex()
+          .concat("-")
+          .concat(BigInt.fromI32(mints.length).toString())
       );
       mint.transaction = transaction.id;
       mint.pair = pair.id;
@@ -74,7 +77,10 @@ export function handleTransfer(event: Transfer): void {
   if (event.params.to.toHex() == pair.id) {
     let burns = transaction.burns;
     let burn = new BurnEvent(
-      event.transaction.hash.toHex().concat("-").concat(BigInt.fromI32(burns.length).toString())
+      event.transaction.hash
+        .toHex()
+        .concat("-")
+        .concat(BigInt.fromI32(burns.length).toString())
     );
     burn.transaction = transaction.id;
     burn.pair = pair.id;
@@ -107,7 +113,10 @@ export function handleTransfer(event: Transfer): void {
         burn = currentBurn as BurnEvent;
       } else {
         burn = new BurnEvent(
-          event.transaction.hash.toHex().concat("-").concat(BigInt.fromI32(burns.length).toString())
+          event.transaction.hash
+            .toHex()
+            .concat("-")
+            .concat(BigInt.fromI32(burns.length).toString())
         );
         burn.transaction = transaction.id;
         burn.needsComplete = false;
@@ -117,7 +126,12 @@ export function handleTransfer(event: Transfer): void {
         burn.timestamp = transaction.timestamp;
       }
     } else {
-      burn = new BurnEvent(event.transaction.hash.toHex().concat("-").concat(BigInt.fromI32(burns.length).toString()));
+      burn = new BurnEvent(
+        event.transaction.hash
+          .toHex()
+          .concat("-")
+          .concat(BigInt.fromI32(burns.length).toString())
+      );
       burn.transaction = transaction.id;
       burn.needsComplete = false;
       burn.pair = pair.id;
@@ -421,7 +435,12 @@ export function handleSwap(event: Swap): void {
     transaction.burns = [];
   }
   let swaps = transaction.swaps;
-  let swap = new SwapEvent(event.transaction.hash.toHex().concat("-").concat(BigInt.fromI32(swaps.length).toString()));
+  let swap = new SwapEvent(
+    event.transaction.hash
+      .toHex()
+      .concat("-")
+      .concat(BigInt.fromI32(swaps.length).toString())
+  );
 
   // update swap event
   swap.transaction = transaction.id;

@@ -22,7 +22,7 @@ export function getBnbPriceInUSD(): BigDecimal {
 let WHITELIST: string[] = [
   "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", // WMATIC
   "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // USDC
-  "0xc2768beF7a6BB57F0FfA169a9ED4017c09696FF1", // PE
+  "0xc2768beF7a6BB57F0FfA169a9ED4017c09696FF1" // PE
 ];
 
 // minimum liquidity for price to get tracked
@@ -72,7 +72,10 @@ export function getTrackedVolumeUSD(
 
   // both are whitelist tokens, take average of both amounts
   if (WHITELIST.includes(token0.id) && WHITELIST.includes(token1.id)) {
-    return tokenAmount0.times(price0).plus(tokenAmount1.times(price1)).div(BigDecimal.fromString("2"));
+    return tokenAmount0
+      .times(price0)
+      .plus(tokenAmount1.times(price1))
+      .div(BigDecimal.fromString("2"));
   }
 
   // take full value of the whitelisted token amount

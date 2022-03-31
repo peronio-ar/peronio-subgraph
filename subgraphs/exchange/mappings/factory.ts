@@ -9,7 +9,7 @@ import {
   ONE_BI,
   fetchTokenSymbol,
   fetchTokenName,
-  fetchTokenDecimals,
+  fetchTokenDecimals
 } from "./utils";
 
 export function handlePairCreated(event: PairCreated): void {

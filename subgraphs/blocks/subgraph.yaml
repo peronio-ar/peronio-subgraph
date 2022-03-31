@@ -1,6 +1,6 @@
 specVersion: 0.0.2
-description: Binance Smart Chain Blocks
-repository: https://github.com/pancakeswap
+description: Peronio Blocks
+repository: https://github.com/peronio-ar
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,11 +8,11 @@ dataSources:
     name: BSCValidatorSet
     network: bsc
     source:
-      address: '0x0000000000000000000000000000000000001000'
+      address: "0x0000000000000000000000000000000000001000"
       abi: BSCValidatorSet
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./mappings/index.ts
       entities:

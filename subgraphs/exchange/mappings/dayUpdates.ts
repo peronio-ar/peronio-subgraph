@@ -32,7 +32,10 @@ export function updatePairDayData(event: ethereum.Event): PairDayData {
   let timestamp = event.block.timestamp.toI32();
   let dayID = timestamp / 86400;
   let dayStartTimestamp = dayID * 86400;
-  let dayPairID = event.address.toHex().concat("-").concat(BigInt.fromI32(dayID).toString());
+  let dayPairID = event.address
+    .toHex()
+    .concat("-")
+    .concat(BigInt.fromI32(dayID).toString());
   let pair = Pair.load(event.address.toHex());
   let pairDayData = PairDayData.load(dayPairID);
   if (pairDayData === null) {
@@ -60,7 +63,10 @@ export function updatePairHourData(event: ethereum.Event): PairHourData {
   let timestamp = event.block.timestamp.toI32();
   let hourIndex = timestamp / 3600;
   let hourStartUnix = hourIndex * 3600;
-  let hourPairID = event.address.toHex().concat("-").concat(BigInt.fromI32(hourIndex).toString());
+  let hourPairID = event.address
+    .toHex()
+    .concat("-")
+    .concat(BigInt.fromI32(hourIndex).toString());
   let pair = Pair.load(event.address.toHex());
   let pairHourData = PairHourData.load(hourPairID);
   if (pairHourData === null) {
@@ -87,7 +93,10 @@ export function updateTokenDayData(token: Token, event: ethereum.Event): TokenDa
   let timestamp = event.block.timestamp.toI32();
   let dayID = timestamp / 86400;
   let dayStartTimestamp = dayID * 86400;
-  let tokenDayID = token.id.toString().concat("-").concat(BigInt.fromI32(dayID).toString());
+  let tokenDayID = token.id
+    .toString()
+    .concat("-")
+    .concat(BigInt.fromI32(dayID).toString());
 
   let tokenDayData = TokenDayData.load(tokenDayID);
   if (tokenDayData === null) {
