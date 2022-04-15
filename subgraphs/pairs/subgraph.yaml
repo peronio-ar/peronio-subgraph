@@ -6,14 +6,14 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Factory
-    network: bsc
+    network: matic
     source:
       address: "0x84Ceb1675E369C703c76D023C58448EC135bBA10"
       abi: Factory
       startBlock: 25025375
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.4
       language: wasm/assemblyscript
       file: ./mappings/factory.ts
       entities:
